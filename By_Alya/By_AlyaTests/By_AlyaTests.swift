@@ -16,13 +16,8 @@ final class By_AlyaTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
 
-        // ViewModel'ı initialize et
         viewModel = ContentViewModel()
-
-        // WebView'i initialize et
         webView = WKWebView()
-
-        // ViewModel'deki webView'i set et
         viewModel.webView = webView
     }
 
