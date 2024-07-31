@@ -23,7 +23,7 @@ struct WebView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        // Bu alan boş bırakılabilir
+
     }
 
     internal func webViewConfiguration() -> WKWebViewConfiguration {
