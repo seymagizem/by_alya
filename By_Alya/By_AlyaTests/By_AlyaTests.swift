@@ -35,17 +35,13 @@ final class By_AlyaTests: XCTestCase {
     func testWebViewLoad() throws {
         let expectation = XCTestExpectation(description: "WebView loads initial URL")
 
-        // Delegate ayarla
         webView.navigationDelegate = WebViewNavigationDelegate(expectation: expectation)
 
-        // URL'yi yükle
         let testURL = URL(string: "https://www.byalyametal.com")!
         webView.load(URLRequest(url: testURL))
 
-        // Bekleyiş süresi
         wait(for: [expectation], timeout: 10.0)
 
-        // URL kontrolü
         XCTAssertTrue(webView.url?.absoluteString.hasPrefix(testURL.absoluteString) ?? false, "URL'ler eşleşmiyor: \(webView.url?.absoluteString ?? "nil")")
     }
 
@@ -53,21 +49,17 @@ final class By_AlyaTests: XCTestCase {
         let initialURL = URL(string: "https://www.byalyametal.com")!
         let productsURL = URL(string: "https://www.byalyametal.com/urunler/")!
 
-        // İlk URL yüklenmesi için test
         let initialExpectation = XCTestExpectation(description: "WebView loads initial URL after back button")
         webView.navigationDelegate = WebViewNavigationDelegate(expectation: initialExpectation)
 
-        // URL'yi yükle ve bekle
         webView.load(URLRequest(url: initialURL))
         wait(for: [initialExpectation], timeout: 10.0)
 
         XCTAssertTrue(webView.url?.absoluteString.hasPrefix(initialURL.absoluteString) ?? false, "İlk URL yüklenmedi: \(webView.url?.absoluteString ?? "nil")")
 
-        // Ürünler tab'ının seçilmesi
         let productsExpectation = XCTestExpectation(description: "WebView updates URL after selecting products tab")
         webView.navigationDelegate = WebViewNavigationDelegate(expectation: productsExpectation)
 
-        // Simulate tab selection
         viewModel.selectedTabIndex = 3
         viewModel.webView?.load(URLRequest(url: productsURL))
 
@@ -99,7 +91,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        expectation.fulfill() // Bu durumda da beklentiyi karşılayalım.
+        expectation.fulfill() 
     }
 }
 
