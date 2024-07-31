@@ -59,7 +59,7 @@ struct ContentView: View {
                         // Transparan daire
                         ZStack {
                             Circle()
-                                .fill(Color.clear) // Arka plan transparan
+                                .fill(Color.clear) 
                                 .frame(width: 95, height: 95)
 
                             Circle()
