@@ -2,7 +2,7 @@
 //  By_AlyaApp.swift
 //  By_Alya
 //
-//  Created by şeyma gizem sivri on 22.07.2024.
+//  Created by şeyma gizem sivri on 22.07.2024
 //
 
 import SwiftUI
