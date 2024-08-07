@@ -31,7 +31,6 @@ struct ContentView: View {
                 VStack {
                     Spacer()
 
-                    // Tab Bar
                     ZStack {
                         HStack(spacing: 5) {
                             ForEach(0..<tabImageNames.count, id: \.self) { itemIndex in
@@ -56,7 +55,6 @@ struct ContentView: View {
                         .background(Color(red: 132/255, green: 129/255, blue: 128/255))
                         .padding(.top, 30)
 
-                        // Transparan daire
                         ZStack {
                             Circle()
                                 .fill(Color.clear) 
@@ -95,11 +93,11 @@ struct ContentView: View {
             if let webView = viewModel.webView, webView.canGoForward {
                 webView.goForward()
             }
-        case 3: // Ürünler tabı
+        case 3: // Ürünler butonu
             if let url = URL(string: "https://www.byalyametal.com/urunler/") {
                 viewModel.webView?.load(URLRequest(url: url))
             }
-        case 4: // Mağaza tabı
+        case 4: // Mağaza butonu
             if let url = URL(string: "https://www.trendyol.com/magaza/by-alya-metal-m-297978?sst=0") {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -117,13 +115,10 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-// WebViewNavigationDelegate to handle navigation events
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // Handle when navigation finishes
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        // Handle when navigation fails
     }
 }
