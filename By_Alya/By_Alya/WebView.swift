@@ -14,7 +14,7 @@ struct WebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero, configuration: webViewConfiguration())
-        // WebView'in referansını bağla
+
         DispatchQueue.main.async {
             self.webView = webView
         }
